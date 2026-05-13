@@ -1,0 +1,22 @@
+name: Bug
+description: Report a tooling, firmware, receiver, or documentation defect
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+

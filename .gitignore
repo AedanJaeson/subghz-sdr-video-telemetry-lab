@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# PlatformIO / embedded
+.pio/
+.vscode/
+*.bin
+*.elf
+*.map
+
+# GNU Radio generated/transient files
+*.pyc
+*.log
+*.tmp
+
+# SDR captures: keep instructions and tiny placeholders only.
+*.iq
+*.cu8
+*.cs8
+*.cf32
+*.cfile
+*.wav
+*.raw
+captures/**/*.bin
+!captures/example_iq/.gitkeep
+
+# Reports and notebooks
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+desktop.ini
+

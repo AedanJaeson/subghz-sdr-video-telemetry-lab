@@ -1,0 +1,42 @@
+name: Guided task
+description: Guided engineering learning task
+title: "[Task]: "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this matters
+  - type: textarea
+    id: theory
+    attributes:
+      label: Theory to learn
+  - type: textarea
+    id: steps
+    attributes:
+      label: Hands-on steps
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence to commit
+  - type: textarea
+    id: stretch
+    attributes:
+      label: Stretch goal
+  - type: textarea
+    id: risks
+    attributes:
+      label: Notes / risks
+

@@ -1,0 +1,18 @@
+name: Learning note
+description: Capture a concept, observation, or decision
+title: "[Learning Note]: "
+labels: ["learning-note"]
+body:
+  - type: textarea
+    id: note
+    attributes:
+      label: Note
+  - type: textarea
+    id: source
+    attributes:
+      label: Source / evidence
+  - type: textarea
+    id: implication
+    attributes:
+      label: Project implication
+

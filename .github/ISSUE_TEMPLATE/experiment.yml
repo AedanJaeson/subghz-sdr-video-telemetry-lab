@@ -1,0 +1,30 @@
+name: Experiment
+description: RF, SDR, DSP, or embedded experiment log
+title: "[Experiment]: "
+labels: ["learning-note"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+  - type: textarea
+    id: setup
+    attributes:
+      label: Setup
+  - type: textarea
+    id: method
+    attributes:
+      label: Method
+  - type: textarea
+    id: results
+    attributes:
+      label: Results
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+  - type: textarea
+    id: risks
+    attributes:
+      label: Notes / risks
+
