@@ -70,8 +70,8 @@ Receive-only work comes first. Before any RF transmission, complete the checklis
 
 | Area | Status |
 | --- | --- |
-| Repository scaffold | In progress |
-| Learning path | In progress |
+| Repository scaffold | Complete |
+| Learning path | Complete |
 | RF safety checklist | Drafted |
 | SDR bring-up | Not started |
 | Packet simulation | Not started |
