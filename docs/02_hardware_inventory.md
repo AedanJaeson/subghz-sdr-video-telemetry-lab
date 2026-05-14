@@ -4,8 +4,8 @@ Use this file to record verified hardware. Unknowns should stay marked `TBD` unt
 
 | Item | Status | Notes |
 | --- | --- | --- |
-| Nooelec NESDR SMArt v5 | Owned/TBD | RTL2832U + R820T2/R860 style RTL-SDR, approx. 100 kHz to 1.75 GHz, 0.5 ppm TCXO. Standard SMArt v5 does not have an always-on bias tee. |
-| Antennas in Nooelec kit | TBD | Record antenna types and connector/adapters. |
+| Nooelec NESDR SMArt v5 | Owned | RTL2832U + R820T2/R860 style RTL-SDR, approx. 100 kHz to 1.75 GHz, 0.5 ppm TCXO. Standard SMArt v5 does not have an always-on bias tee. |
+| Antennas in Nooelec kit | Owned | Telescopic Whip, 433 Mhz Antenna, UHF Antenna |
 | ESP32-CAM with OV2640 | TBD | Record exact board variant and flash method. |
 | CC1101 module | TBD | Verify frequency variant before any transmit work. Do not assume 433/868/915 MHz. |
 | USB data cable | TBD | Confirm data-capable cable, not charge-only. |
