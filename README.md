@@ -66,6 +66,8 @@ Video over CC1101 is technically weak as a product: the data rate is low, JPEG f
 
 Receive-only work comes first. Before any RF transmission, complete the checklist in [docs/04_rf_safety_and_legal_notes.md](docs/04_rf_safety_and_legal_notes.md), verify current ACMA/LIPD rules, confirm the module frequency variant, use low power, and avoid protected services. Never connect a transmitter directly to the SDR input without suitable attenuation.
 
+Note: legacy NOAA POES/APT weather-satellite reception is no longer a reliable beginner task because the POES constellation has been decommissioned. See [docs/weather_satellite_receive_alternatives.md](docs/weather_satellite_receive_alternatives.md) for the updated receive-only planning note.
+
 ## Current Status
 
 | Area | Status |

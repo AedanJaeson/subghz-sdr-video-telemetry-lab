@@ -81,12 +81,14 @@ Prove:
 - Observe ADS-B at 1090 MHz if conditions permit.
 - Observe 433 MHz or 915 MHz activity receive-only.
 - Record repeatable observation notes.
+- Treat legacy NOAA POES/APT as retired. If a weather-satellite task is attempted, use it as a planning note for realistic alternatives rather than assuming NOAA APT capture is still available.
 
 Evidence:
 
 - Waterfall screenshots
 - RF observation log entries
 - Notes on bandwidth, burst duration, and likely modulation
+- For weather-satellite planning: a current-status note and a decision to skip, defer, or choose an alternative receive-only experiment.
 
 Difficulty: beginner to intermediate.
 
@@ -298,4 +300,3 @@ Evidence:
 - Retrospective
 
 Difficulty: intermediate communication.
-
