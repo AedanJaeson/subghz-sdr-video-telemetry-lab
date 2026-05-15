@@ -32,7 +32,7 @@ Video over CC1101 is technically weak as a product: the data rate is low, JPEG f
 
 - Nooelec NESDR SMArt v5 RTL-SDR kit
 - ESP32-CAM board with OV2640 camera
-- CC1101 module, frequency variant to be verified before use
+- CC1101 module, ordered and expected by 2026-05-27; frequency variant to be verified before use
 - USB data cable and optional powered USB hub
 - Antennas appropriate to receive-only experiments and legal-band transmit tests
 - Optional second CC1101 module for debug receive
@@ -68,6 +68,8 @@ Receive-only work comes first. Before any RF transmission, complete the checklis
 
 Note: legacy NOAA POES/APT weather-satellite reception is no longer a reliable beginner task because the POES constellation has been decommissioned. See [docs/weather_satellite_receive_alternatives.md](docs/weather_satellite_receive_alternatives.md) for the updated receive-only planning note.
 
+While the CC1101 is in transit, the active path is pre-transmit work: SDR receive-only setup, IQ capture workflow, Python packet simulation, image serialization, and serial/file loopback. See [docs/pre_transmit_work_plan.md](docs/pre_transmit_work_plan.md).
+
 ## Current Status
 
 | Area | Status |
@@ -76,7 +78,7 @@ Note: legacy NOAA POES/APT weather-satellite reception is no longer a reliable b
 | Learning path | Complete |
 | RF safety checklist | Drafted |
 | SDR bring-up | Not started |
-| Packet simulation | Not started |
+| Packet simulation | Ready before RF hardware |
 | Firmware | Not started |
 | GNU Radio receiver | Not started |
 | End-to-end link | Not started |
