@@ -12,7 +12,13 @@ Initial goals:
 
 ## Current Smoke Test
 
-`src/main.cpp` blinks the ESP32-CAM flash LED on GPIO4 and prints a serial heartbeat at 115200 baud.
+`src/main.cpp` now performs staged CC1101 bring-up:
+
+1. Blink ESP32-CAM flash LED on GPIO4.
+2. Print serial heartbeat at 115200 baud.
+3. Read CC1101 `PARTNUM` and `VERSION` registers over SPI.
+4. Initialize RadioLib for CC1101.
+5. Transmit only if `CC1101_TRANSMIT_ENABLED=1` is deliberately set.
 
 Status: passed on 2026-05-26 using HW-409 on COM4. See `reports/logs/esp32cam_bringup_log.md`.
 
@@ -22,7 +28,9 @@ Expected serial output:
 ESP32-CAM HW-409 smoke test
 Flash LED: GPIO4
 Expected: LED blinks and serial heartbeat prints every 500 ms.
-heartbeat 1 millis=...
+CC1101 bring-up
+Transmit enabled: NO
+CC1101 SPI OK
 ```
 
 ## HW-409 Flashing Wiring
@@ -57,3 +65,15 @@ python -m platformio device monitor
 ```
 
 The current `platformio.ini` uses `COM4`. If Windows assigns a different port, update `upload_port` and `monitor_port`.
+
+## CC1101 Bring-Up
+
+See `docs/cc1101_bringup_plan.md`.
+
+Default firmware does not transmit:
+
+```ini
+-D CC1101_TRANSMIT_ENABLED=0
+```
+
+Enable transmit only after the RF safety checklist is complete, the module frequency variant is verified, and a suitable antenna or dummy load is connected.
