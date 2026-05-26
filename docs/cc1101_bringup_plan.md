@@ -36,7 +36,7 @@ After flashing, unplug USB, remove GPIO0 from GND, then reconnect or reset to ru
 | MOSI | GPIO13 |
 | CSN | GPIO15 |
 | GDO0 | GPIO2 |
-| GDO2 | Leave disconnected for first tests |
+| GDO2 | GPIO16 |
 
 CC1101 VCC is 3.3 V only. Do not connect it to 5 V.
 
@@ -76,6 +76,7 @@ If this fails, check:
 - CSN/SCK/MISO/MOSI are not swapped.
 - The module is not rotated or connected to the wrong pin row.
 - GPIO0 is removed from GND after flashing.
+- GDO2 is connected to GPIO16 before running blocking transmit tests.
 
 ## Stage 2 - Short Low-Power Test Packet
 
@@ -106,6 +107,12 @@ Expected TX serial output:
 
 ```text
 TX packet: SUBGHZ_LAB_TEST_0 ... success
+```
+
+If TX fails with RadioLib code `-5`, that is `RADIOLIB_ERR_TX_TIMEOUT`. For CC1101 blocking transmit, RadioLib waits on GDO2 to observe packet start/end. Check that:
+
+```text
+CC1101 GDO2 -> ESP32-CAM GPIO16
 ```
 
 Use SDR++/SDR# or the Nooelec SDR receive chain to look for short bursts at the configured frequency.

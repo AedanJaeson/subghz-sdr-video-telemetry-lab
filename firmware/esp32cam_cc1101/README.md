@@ -70,6 +70,13 @@ The current `platformio.ini` uses `COM4`. If Windows assigns a different port, u
 
 See `docs/cc1101_bringup_plan.md`.
 
+For blocking transmit tests, wire both CC1101 interrupt/status pins:
+
+```text
+CC1101 GDO0 -> ESP32-CAM GPIO2
+CC1101 GDO2 -> ESP32-CAM GPIO16
+```
+
 Default firmware does not transmit:
 
 ```ini

@@ -47,7 +47,7 @@ This wiring plan is provisional until the ordered CC1101 module arrives and its 
 | MISO | IO12 | SPI data out (boot pin – must be LOW at reset, which it normally is) |
 | CSn | IO15 | Chip Select |
 | GDO0 | IO2 | Main interrupt / packet ready (important) |
-| GDO2 | IO16 | Optional second interrupt (can leave unconnected for first tests) |
+| GDO2 | IO16 | Required for RadioLib blocking transmit completion detection |
 
 ### Important Board Notes
 

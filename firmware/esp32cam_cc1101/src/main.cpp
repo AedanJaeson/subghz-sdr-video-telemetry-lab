@@ -11,6 +11,7 @@ constexpr int CC1101_PIN_MISO = 12;
 constexpr int CC1101_PIN_MOSI = 13;
 constexpr int CC1101_PIN_CSN = 15;
 constexpr int CC1101_PIN_GDO0 = 2;
+constexpr int CC1101_PIN_GDO2 = 16;
 
 // CC1101 status registers. Use the status-register read command, not normal register read.
 constexpr uint8_t CC1101_REG_PARTNUM = 0x30;
@@ -25,7 +26,7 @@ Module cc1101Module(
     CC1101_PIN_CSN,
     CC1101_PIN_GDO0,
     RADIOLIB_NC,
-    RADIOLIB_NC,
+    CC1101_PIN_GDO2,
     cc1101Spi,
     SPISettings(1000000, MSBFIRST, SPI_MODE0));
 CC1101 radio(&cc1101Module);
