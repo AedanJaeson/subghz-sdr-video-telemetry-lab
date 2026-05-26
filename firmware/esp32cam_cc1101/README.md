@@ -77,6 +77,8 @@ CC1101 GDO0 -> ESP32-CAM GPIO2
 CC1101 GDO2 -> ESP32-CAM GPIO16
 ```
 
+The low-power TX environment currently uses a staged transmit call: `startTransmit(...)`, a short wait for SDR observation, then `finishTransmit(...)`. This is intentional for bring-up because a visible SDR# burst proves the transmitter path even if the ESP32-CAM misses the GDO2 completion edge.
+
 Default firmware does not transmit:
 
 ```ini

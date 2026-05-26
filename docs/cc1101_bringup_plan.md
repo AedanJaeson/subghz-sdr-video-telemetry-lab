@@ -106,10 +106,12 @@ python -m platformio device monitor
 Expected TX serial output:
 
 ```text
-TX packet: SUBGHZ_LAB_TEST_0 ... success
+TX packet: SUBGHZ_LAB_TEST_0 ... started; wait 250 ms for SDR burst; finish ... success
 ```
 
-If TX fails with RadioLib code `-5`, that is `RADIOLIB_ERR_TX_TIMEOUT`. For CC1101 blocking transmit, RadioLib waits on GDO2 to observe packet start/end. Check that:
+If the older blocking `radio.transmit(...)` path fails with RadioLib code `-5`, that is `RADIOLIB_ERR_TX_TIMEOUT`. If SDR# shows a burst anyway, the CC1101 probably transmitted and the ESP32 did not observe the expected GDO2 edge. For first RF bring-up, the firmware uses `startTransmit(...)`, waits for the short packet to leave the radio, then calls `finishTransmit(...)`. This makes the SDR waterfall the primary proof point.
+
+Still check that:
 
 ```text
 CC1101 GDO2 -> ESP32-CAM GPIO16

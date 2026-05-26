@@ -20,6 +20,7 @@ constexpr uint8_t CC1101_READ_BURST = 0xC0;
 
 constexpr unsigned long HEARTBEAT_MS = 1000;
 constexpr unsigned long TX_INTERVAL_MS = 3000;
+constexpr unsigned long TX_OBSERVATION_WAIT_MS = 250;
 
 SPIClass cc1101Spi(HSPI);
 Module cc1101Module(
@@ -79,6 +80,30 @@ void printRadioLibState(int16_t state) {
 
   Serial.print("failed, RadioLib code ");
   Serial.println(state);
+}
+
+void transmitObservedPacket(const String &packet) {
+  Serial.print("TX packet: ");
+  Serial.print(packet);
+  Serial.print(" ... ");
+
+  const int16_t start_state = radio.startTransmit(
+      reinterpret_cast<const uint8_t *>(packet.c_str()),
+      packet.length());
+
+  if (start_state != RADIOLIB_ERR_NONE) {
+    Serial.print("start failed, RadioLib code ");
+    Serial.println(start_state);
+    return;
+  }
+
+  Serial.print("started; wait ");
+  Serial.print(TX_OBSERVATION_WAIT_MS);
+  Serial.print(" ms for SDR burst; finish ... ");
+  delay(TX_OBSERVATION_WAIT_MS);
+
+  const int16_t finish_state = radio.finishTransmit();
+  printRadioLibState(finish_state);
 }
 
 bool initializeCc1101() {
@@ -176,11 +201,7 @@ void loop() {
   if (now - last_tx_ms >= TX_INTERVAL_MS) {
     last_tx_ms = now;
     String packet = "SUBGHZ_LAB_TEST_" + String(tx_count++);
-    Serial.print("TX packet: ");
-    Serial.print(packet);
-    Serial.print(" ... ");
-    const int16_t state = radio.transmit(packet);
-    printRadioLibState(state);
+    transmitObservedPacket(packet);
   }
 #else
   if (heartbeat_count % 5 == 0 && now - last_tx_ms >= 5000) {
