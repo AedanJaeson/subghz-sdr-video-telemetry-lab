@@ -14,6 +14,8 @@ Initial goals:
 
 `src/main.cpp` blinks the ESP32-CAM flash LED on GPIO4 and prints a serial heartbeat at 115200 baud.
 
+Status: passed on 2026-05-26 using HW-409 on COM4. See `reports/logs/esp32cam_bringup_log.md`.
+
 Expected serial output:
 
 ```text

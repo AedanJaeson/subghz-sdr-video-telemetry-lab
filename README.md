@@ -79,7 +79,7 @@ While the CC1101 is in transit, the active path is pre-transmit work: SDR receiv
 | RF safety checklist | Drafted |
 | SDR bring-up | Not started |
 | Packet simulation | Ready before RF hardware |
-| Firmware | Not started |
+| Firmware | ESP32-CAM HW-409 smoke test passed |
 | GNU Radio receiver | Not started |
 | End-to-end link | Not started |
 
