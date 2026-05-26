@@ -80,6 +80,7 @@ While the CC1101 is in transit, the active path is pre-transmit work: SDR receiv
 | SDR bring-up | Not started |
 | Packet simulation | Ready before RF hardware |
 | Firmware | ESP32-CAM HW-409 smoke test passed |
+| CC1101 SPI bring-up | Passed; TX still disabled |
 | GNU Radio receiver | Not started |
 | End-to-end link | Not started |
 

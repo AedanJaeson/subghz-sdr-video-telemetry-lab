@@ -7,7 +7,7 @@ Use this file to record verified hardware. Unknowns should stay marked `TBD` unt
 | Nooelec NESDR SMArt v5 | Owned | RTL2832U + R820T2/R860 style RTL-SDR, approx. 100 kHz to 1.75 GHz, 0.5 ppm TCXO. Standard SMArt v5 does not have an always-on bias tee. |
 | Antennas in Nooelec kit | Owned | Telescopic Whip, 433 Mhz Antenna, UHF Antenna |
 | ESP32-CAM with OV2640 | TBD | Record exact board variant and flash method. |
-| CC1101 module | Arrived / verify before TX | Verify frequency variant before any transmit work. Do not assume 433/868/915 MHz. |
+| CC1101 module | SPI verified / verify band before TX | SPI/register access verified on 2026-05-26. Firmware configured for 433.920 MHz, but module marking/local rules must still be verified before RF transmit. |
 | USB data cable | TBD | Confirm data-capable cable, not charge-only. |
 | Powered USB hub | Optional/TBD | Useful if laptop USB power is unstable. |
 | Second CC1101 | Optional/TBD | Useful for standalone packet-link debugging. |
@@ -16,7 +16,7 @@ Use this file to record verified hardware. Unknowns should stay marked `TBD` unt
 
 ## Current Hardware Blockers
 
-As of 2026-05-26, the immediate CC1101 task is wiring and SPI/register verification. RF transmission remains gated until the module frequency variant is verified and the RF safety checklist is complete.
+As of 2026-05-26, CC1101 SPI/register verification has passed. RF transmission remains gated until the module frequency variant is verified, a suitable antenna or dummy load is connected, and the RF safety checklist is complete.
 
 Do not wait on the module for the rest of the project. Work that can continue now:
 
