@@ -18,7 +18,6 @@ constexpr uint8_t CC1101_REG_PARTNUM = 0x30;
 constexpr uint8_t CC1101_REG_VERSION = 0x31;
 constexpr uint8_t CC1101_READ_BURST = 0xC0;
 
-constexpr unsigned long HEARTBEAT_MS = 1000;
 constexpr unsigned long TX_INTERVAL_MS = 3000;
 constexpr unsigned long TX_OBSERVATION_WAIT_MS = 250;
 
@@ -32,11 +31,8 @@ Module cc1101Module(
     SPISettings(1000000, MSBFIRST, SPI_MODE0));
 CC1101 radio(&cc1101Module);
 
-unsigned long last_heartbeat_ms = 0;
 unsigned long last_tx_ms = 0;
-uint32_t heartbeat_count = 0;
 uint32_t tx_count = 0;
-bool led_on = false;
 
 void blinkLed(unsigned long duration_ms) {
   digitalWrite(FLASH_LED_PIN, HIGH);
@@ -184,19 +180,6 @@ void setup() {
 void loop() {
   const unsigned long now = millis();
 
-  if (now - last_heartbeat_ms >= HEARTBEAT_MS) {
-    last_heartbeat_ms = now;
-    led_on = !led_on;
-    digitalWrite(FLASH_LED_PIN, led_on ? HIGH : LOW);
-
-    Serial.print("heartbeat ");
-    Serial.print(++heartbeat_count);
-    Serial.print(" millis=");
-    Serial.print(now);
-    Serial.print(" led=");
-    Serial.println(led_on ? "on" : "off");
-  }
-
 #if CC1101_TRANSMIT_ENABLED
   if (now - last_tx_ms >= TX_INTERVAL_MS) {
     last_tx_ms = now;
@@ -204,7 +187,7 @@ void loop() {
     transmitObservedPacket(packet);
   }
 #else
-  if (heartbeat_count % 5 == 0 && now - last_tx_ms >= 5000) {
+  if (now - last_tx_ms >= 5000) {
     last_tx_ms = now;
     Serial.println("TX disabled. Set CC1101_TRANSMIT_ENABLED=1 only after RF checklist is complete.");
   }
