@@ -341,6 +341,17 @@ Use GNU Radio for:
 - binary slicing,
 - file/socket sink to Python.
 
+When helping with GNU Radio, explain every new block in terms of:
+
+- what data type it expects,
+- what data type it outputs,
+- what physical/DSP idea it represents,
+- why it belongs at that point in the chain,
+- what the user should expect to see if it is working.
+
+Do not give Aedan a block list without the theory. GNU Radio is part of the
+learning objective, not just a tool for producing bits.
+
 Do not use C++ for the receiver MVP unless Aedan explicitly asks. C++ is useful
 later for a polished high-performance receiver, but it slows learning during
 early DSP exploration.
