@@ -76,9 +76,9 @@ class receiver(gr.top_block, Qt.QWidget):
         ##################################################
 
         self.qtgui_time_sink_x_1 = qtgui.time_sink_f(
-            65536, #size
+            32768, #size
             channel_rate, #samp_rate
-            "", #name
+            "power time sink", #name
             1, #number of inputs
             None # parent
         )
@@ -89,7 +89,7 @@ class receiver(gr.top_block, Qt.QWidget):
 
         self.qtgui_time_sink_x_1.enable_tags(True)
         self.qtgui_time_sink_x_1.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_1.enable_autoscale(False)
+        self.qtgui_time_sink_x_1.enable_autoscale(True)
         self.qtgui_time_sink_x_1.enable_grid(False)
         self.qtgui_time_sink_x_1.enable_axis_labels(True)
         self.qtgui_time_sink_x_1.enable_control_panel(False)
@@ -137,7 +137,7 @@ class receiver(gr.top_block, Qt.QWidget):
 
         self.qtgui_time_sink_x_0.enable_tags(True)
         self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_0.enable_autoscale(False)
+        self.qtgui_time_sink_x_0.enable_autoscale(True)
         self.qtgui_time_sink_x_0.enable_grid(True)
         self.qtgui_time_sink_x_0.enable_axis_labels(True)
         self.qtgui_time_sink_x_0.enable_control_panel(False)
@@ -187,7 +187,7 @@ class receiver(gr.top_block, Qt.QWidget):
         self.blocks_moving_average_xx_1 = blocks.moving_average_ff(2040, (1.0 / 2040), 4000, 1)
         self.blocks_moving_average_xx_0 = blocks.moving_average_ff(16, (1 / 64), 4000, 1)
         self.blocks_float_to_complex_0 = blocks.float_to_complex(1)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, 'C:\\Users\\Aedan\\dev\\subghz-sdr-video-telemetry-lab\\captures\\example_iq\\cc1101_test1.cu8', True, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, 'C:\\Users\\Aedan\\dev\\subghz-sdr-video-telemetry-lab\\captures\\example_iq\\cc1101_test1.cu8', True, 1632000, 489600)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_deinterleave_0 = blocks.deinterleave(gr.sizeof_float*1, 1)
         self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(1)
@@ -211,10 +211,10 @@ class receiver(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_moving_average_xx_1, 0), (self.qtgui_time_sink_x_1, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_float_to_complex_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0_0, 0), (self.blocks_float_to_complex_0, 1))
-        self.connect((self.blocks_throttle2_0, 0), (self.blocks_complex_to_mag_squared_0, 0))
         self.connect((self.blocks_throttle2_0, 0), (self.low_pass_filter_0, 0))
         self.connect((self.blocks_uchar_to_float_0, 0), (self.blocks_deinterleave_0, 0))
         self.connect((self.low_pass_filter_0, 0), (self.analog_quadrature_demod_cf_0, 0))
+        self.connect((self.low_pass_filter_0, 0), (self.blocks_complex_to_mag_squared_0, 0))
 
 
     def closeEvent(self, event):

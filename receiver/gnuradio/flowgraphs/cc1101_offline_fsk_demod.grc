@@ -158,7 +158,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1424, 368.0]
+    coordinate: [1712, 368.0]
     rotation: 0
     state: enabled
 - name: blocks_deinterleave_0
@@ -188,10 +188,10 @@ blocks:
     begin_tag: pmt.PMT_NIL
     comment: ''
     file: C:\Users\Aedan\dev\subghz-sdr-video-telemetry-lab\captures\example_iq\cc1101_test1.cu8
-    length: '0'
+    length: '489600'
     maxoutbuf: '0'
     minoutbuf: '0'
-    offset: '0'
+    offset: '1632000'
     repeat: 'True'
     type: byte
     vlen: '1'
@@ -255,7 +255,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1632, 336.0]
+    coordinate: [1920, 336.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_const_vxx_0
@@ -351,7 +351,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1528, 88.0]
+    coordinate: [1440, 320.0]
     rotation: 0
     state: enabled
 - name: note_0
@@ -396,7 +396,7 @@ blocks:
     alpha7: '1.0'
     alpha8: '1.0'
     alpha9: '1.0'
-    autoscale: 'False'
+    autoscale: 'True'
     axislabels: 'True'
     color1: blue
     color10: dark blue
@@ -493,7 +493,7 @@ blocks:
     alpha7: '1.0'
     alpha8: '1.0'
     alpha9: '1.0'
-    autoscale: 'False'
+    autoscale: 'True'
     axislabels: 'True'
     color1: blue
     color10: dark blue
@@ -531,9 +531,9 @@ blocks:
     marker7: '-1'
     marker8: '-1'
     marker9: '-1'
-    name: '""'
+    name: '"power time sink"'
     nconnections: '1'
-    size: '65536'
+    size: '32768'
     srate: channel_rate
     stemplot: 'False'
     style1: '1'
@@ -572,7 +572,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1848, 344.0]
+    coordinate: [2136, 344.0]
     rotation: 0
     state: enabled
 
@@ -589,10 +589,10 @@ connections:
 - [blocks_moving_average_xx_1, '0', qtgui_time_sink_x_1, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_float_to_complex_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', blocks_float_to_complex_0, '1']
-- [blocks_throttle2_0, '0', blocks_complex_to_mag_squared_0, '0']
 - [blocks_throttle2_0, '0', low_pass_filter_0, '0']
 - [blocks_uchar_to_float_0, '0', blocks_deinterleave_0, '0']
 - [low_pass_filter_0, '0', analog_quadrature_demod_cf_0, '0']
+- [low_pass_filter_0, '0', blocks_complex_to_mag_squared_0, '0']
 
 metadata:
   file_format: 1
