@@ -84,8 +84,9 @@ void transmitObservedPacket(const String &packet) {
   Serial.print(" ... ");
 
   const int16_t start_state = radio.startTransmit(
-      reinterpret_cast<const uint8_t *>(packet.c_str()),
-      packet.length());
+      // RadioLib's transmit methods expect a byte array and length, not a String. The c_str() method returns a pointer to the underlying char array, and length() gives the number of characters (not including any null terminator).
+      reinterpret_cast<const uint8_t *>(packet.c_str()), // reinterpret_cast is used to convert the const char* to const uint8_t* as expected by the transmit method
+      packet.length());  // specify the number of bytes to transmit, which is the length of the string. This ensures that the null terminator is not included in the transmission.
 
   if (start_state != RADIOLIB_ERR_NONE) {
     Serial.print("start failed, RadioLib code ");
