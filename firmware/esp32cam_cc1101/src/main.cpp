@@ -78,30 +78,68 @@ void printRadioLibState(int16_t state) {
   Serial.println(state);
 }
 
-void transmitObservedPacket(const String &packet) {
-  Serial.print("TX packet: ");
-  Serial.print(packet);
-  Serial.print(" ... ");
+// OLD 
 
-  const int16_t start_state = radio.startTransmit(
-      // RadioLib's transmit methods expect a byte array and length, not a String. The c_str() method returns a pointer to the underlying char array, and length() gives the number of characters (not including any null terminator).
-      reinterpret_cast<const uint8_t *>(packet.c_str()), // reinterpret_cast is used to convert the const char* to const uint8_t* as expected by the transmit method
-      packet.length());  // specify the number of bytes to transmit, which is the length of the string. This ensures that the null terminator is not included in the transmission.
+// void transmitObservedPacket(const String &packet) {
+//   Serial.print("TX packet: ");
+//   Serial.print(packet);
+//   Serial.print(" ... ");
 
-  if (start_state != RADIOLIB_ERR_NONE) {
-    Serial.print("start failed, RadioLib code ");
-    Serial.println(start_state);
-    return;
+//   const int16_t start_state = radio.startTransmit(
+//       // RadioLib's transmit methods expect a byte array and length, not a String. The c_str() method returns a pointer to the underlying char array, and length() gives the number of characters (not including any null terminator).
+//       reinterpret_cast<const uint8_t *>(packet.c_str()), // reinterpret_cast is used to convert the const char* to const uint8_t* as expected by the transmit method
+//       packet.length());  // specify the number of bytes to transmit, which is the length of the string. This ensures that the null terminator is not included in the transmission.
+
+//   if (start_state != RADIOLIB_ERR_NONE) {
+//     Serial.print("start failed, RadioLib code ");
+//     Serial.println(start_state);
+//     return;
+//   }
+// } 
+
+void transmitObservedBytes(const uint8_t *data, size_t len){
+  Serial.print("TX bytes: ");
+
+
+  for (size_t i = 0; i < len; i++){
+    if (data[i] < 0x10){
+      Serial.print("0");
+    }
+
+    Serial.print(data[i], HEX);
+
+    if (i < len - 1){
+      Serial.print(" ");
+    }
+
+    if ((i + 1) % 16 == 0){
+      Serial.println();
+    }
   }
 
-  Serial.print("started; wait ");
-  Serial.print(TX_OBSERVATION_WAIT_MS);
-  Serial.print(" ms for SDR burst; finish ... ");
-  delay(TX_OBSERVATION_WAIT_MS);
+    const int16_t start_state = radio.startTransmit(data, len); // startTransmit expects a pointer to the data and the length of the data in bytes
 
-  const int16_t finish_state = radio.finishTransmit();
-  printRadioLibState(finish_state);
-}
+    if (start_state != RADIOLIB_ERR_NONE) {
+      Serial.print("start failed, RadioLib code ");
+      Serial.println(start_state);
+      return;
+    }
+
+    delay(TX_OBSERVATION_WAIT_MS); // wait for the transmission to complete
+
+
+    const int16_t finish_state = radio.finishTransmit(); // finishTransmit cleans up after the transmission
+
+
+    if (finish_state == RADIOLIB_ERR_NONE) {
+      Serial.println("success");
+    } else {
+      Serial.print("finish failed, RadioLib code ");
+      Serial.println(finish_state);
+    }
+  }
+
+
 
 bool initializeCc1101() {
   Serial.println();
@@ -184,8 +222,13 @@ void loop() {
 #if CC1101_TRANSMIT_ENABLED
   if (now - last_tx_ms >= TX_INTERVAL_MS) {
     last_tx_ms = now;
-    String packet = "SUBGHZ_LAB_TEST_" + String(tx_count++);
-    transmitObservedPacket(packet);
+    uint8_t packet[] = {
+      0x55, 0x55, 0x55, 0x55,
+      0xA7, 0x2D,
+      static_cast<uint8_t>(tx_count++),
+      'F', 'A', 'T', 'T', 'Y', 'D', 'O', 'G'
+    };     
+    transmitObservedBytes(packet, sizeof(packet));
   }
 #else
   if (now - last_tx_ms >= 5000) {
