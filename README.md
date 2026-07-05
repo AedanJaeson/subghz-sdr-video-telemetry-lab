@@ -24,7 +24,7 @@ ESP32-CAM OV2640
 
 This is not a Wi-Fi replacement, FPV system, surveillance tool, high-power transmitter, spectrum scanner for private content, jammer, spoofer, or operational radio product. Any transmit work is optional, low-power, legal-band, short-range, and gated by the RF safety checklist in [docs/04_rf_safety_and_legal_notes.md](docs/04_rf_safety_and_legal_notes.md).
 
-## Why This Is A Good Learning Project
+## Constraints
 
 Video over CC1101 is technically weak as a product: the data rate is low, JPEG frames are fragile under packet loss, latency is high, and Wi-Fi/BLE/LoRa-style alternatives are usually more practical. That weakness is the point. It forces the engineering questions into the open: bit rate, deviation, occupied bandwidth, packet overhead, CRC failures, sync loss, goodput, antenna effects, and SNR.
 
@@ -84,10 +84,4 @@ While the CC1101 is in transit, the active path is pre-transmit work: SDR receiv
 | GNU Radio receiver | Not started |
 | End-to-end link | Not started |
 
-## Final Portfolio Outcomes
 
-- A public, readable engineering lab showing RF, DSP, embedded, and packet-communications growth.
-- Screenshots and captures showing SDR bring-up, spectra, waterfall interpretation, and demodulation progress.
-- Packet protocol documentation with tests and failure analysis.
-- Link-budget and measurement notes comparing simulation against real RF behaviour.
-- Final engineering report and concise resume bullets.
