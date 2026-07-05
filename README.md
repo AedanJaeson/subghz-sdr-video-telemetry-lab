@@ -60,7 +60,7 @@ Video over CC1101 is technically weak as a product: the data rate is low, JPEG f
 | 7 | SDR/GNU Radio FSK receiver | Known packet recovered from SDR capture |
 | 8 | End-to-end image link | Small image reconstructed from RF packets |
 | 9 | Measurement and failure analysis | Link budget, distance, payload-size tradeoffs |
-| 10 | Portfolio polish | Final report, diagrams, demo script, resume bullets |
+| 10 | Report polish | Final report, diagrams, demo script|
 
 ## Safety And Legal Boundary
 
