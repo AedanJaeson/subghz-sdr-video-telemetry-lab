@@ -34,6 +34,8 @@ Do not wait on the module for the rest of the project. Work that can continue no
 | 433 MHz Antenna | Fixed-length (long black) | 433 MHz ISM band | ~3 dBi | Useful if the CC1101 module is a 433 MHz variant and the test is legal for the location. | Right (straight, longer one) |
 | UHF Antenna | Fixed-length (short black) | 800–2200 MHz | ~5 dBi | UHF / 3G / higher frequencies (e.g. ADS-B at 1090 MHz) | The remaining one (often right-angle in some kits) |
 
+**The Nooelec NESDR SMArt v5 bundle includes an antenna base with a 2m RG-58 cable and three modular masts** 
+
 ## Provisional ESP32-CAM to CC1101 Wiring Plan
 
 This wiring plan is provisional until the ordered CC1101 module arrives and its exact pinout/frequency variant are verified. Do not treat this as final build wiring yet.
