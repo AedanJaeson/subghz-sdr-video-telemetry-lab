@@ -46,9 +46,9 @@ Last reconciled: **2026-08-17**
 
 | Item | Qty | Status | Notes |
 | --- | ---: | --- | --- |
-| Short RG316 coax jumpers/pigtails | 2 | Ordered / received | Approximately 5 cm each. Exact connector genders and measured insertion loss remain `TBD`. |
-| Mixed SMA/RP-SMA straight adapters | 7 | Ordered / received; mapping TBD | Order record: listing **Type 1 x2, Type 12 x2 and Type 7 x3**. Decode each seller type into actual SMA/RP-SMA male/female interfaces and label physically before use. |
-| SMA/N/BNC/RP-SMA adapter assortment | Assorted | Owned / received; full count TBD | Several gold RF adapters are present. Inventory each by **body gender and centre-contact gender**; RP-SMA is frequently misidentified. Characterise unknown adapters when using them above approximately 1 GHz. |
+| RG316 SMA Male Plug to SMA Female Jack 5cm | 2 | Owned | Approximately 5 cm each. Exact connector genders and measured insertion loss remain `TBD`. |
+| Mixed SMA/RP-SMA straight adapters | 7 |  Owned | Order record: listing **Type 1 x2, Type 12 x2 and Type 7 x3**. Decode each seller type into actual SMA/RP-SMA male/female interfaces and label physically before use. |
+| SMA/N/BNC/RP-SMA adapter assortment | Assorted | Owned | Several gold RF adapters are present. Inventory each by **body gender and centre-contact gender**; RP-SMA is frequently misidentified. Characterise unknown adapters when using them above approximately 1 GHz. |
 | Nooelec magnetic antenna base and RG-58 cable | 1 | Owned | Approximately 2 m cable supplied with the Nooelec antenna kit. Exact connector chain and cable loss remain `TBD`. |
 | General USB data cables | Assorted | Owned / verify individually | Mark known data-capable cables so charge-only cables do not waste debugging time. |
 | USB hub | 1 | Owned; power arrangement TBD | A hub is available. Confirm whether it is externally powered and whether it remains stable with the Pluto+, RTL-SDR and LiteVNA connected. |
