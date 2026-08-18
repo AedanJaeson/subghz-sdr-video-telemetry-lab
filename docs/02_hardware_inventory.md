@@ -28,19 +28,15 @@ Last reconciled: **2026-08-17**
 | SMA female-to-female through barrel | 1 | Owned | Supplied with the LiteVNA for through calibration and cable/component measurements. Exact rated frequency remains `TBD`. |
 | LiteVNA USB data/charging cable | 1 | Owned | Confirm stable PC data operation as well as charging. |
 | LiteVNA carrying/storage case | 1 | Owned | Stores the analyzer, standards and leads. |
-| SMA port savers / straight adapters | TBD | Owned in adapter assortment; identify exact pieces | Select two mechanically sound straight adapters, label them P1/P2 and keep them installed during a calibration session. Their loss and repeatability can be characterised with the VNA. |
+| SMA port savers / straight adapters | 1 | Owned | RG316 5cm Male to Female cables can be used as savers| 
 
 ## RF Protection, Attenuation and Bias Hardware
 
 | Item | Qty | Status | Notes |
 | --- | ---: | --- | --- |
-| 10 dB SMA fixed attenuator | 1 | Owned | Listing claims 2 W and DC to 6 GHz. Verify actual S21 flatness, return loss and body marking before relying on its power rating. |
-| 30 dB SMA fixed attenuator | 1 | Owned | Listing claims 2 W and DC to 6 GHz. Verify actual S21 flatness, return loss and body marking before relying on its power rating. |
-| SMA inner-conductor DC blocks | 2 | Ordered / received; verify exact units | AliExpress pair sold as DC to 6 GHz. Record connector genders, low-frequency cutoff and voltage/power limits from markings or testing. |
-| N male-to-N female DC block | 1 | Ordered; receipt/markings TBD | Listing claims 50 ohm, DC to 6 GHz and 50 V. Confirm arrival and do not infer whether the outer conductor is isolated without checking the topology. |
-| Enclosed RF bias tee | 1 | Ordered / likely still in transit | Listing title claims approximately 10 MHz to 6 GHz. Record RF/DC port labels, allowable DC voltage/current, insertion loss and isolation when received. Do not confuse a bias tee with a DC block. |
-| Dedicated transmitter dummy load | 0 | To Buy | The LiteVNA calibration load is not a substitute for a power-rated dummy load. Purchase only when controlled CC1101/Pluto conducted-transmit work requires it; specify connector, frequency range and wattage. |
-| RF shielding/test enclosure | 0 | To Buy / optional | Useful for controlled legal-band conducted tests and leakage reduction, but not required for receive-only work or passive VNA measurements. |
+| RF Coaxial DC Block (DC-6Ghz) | 2 | Owned | DC-BLOCK-SMA-JK6. Male-Female barrell |
+| 9khz-6Ghz Digital Step Attenuator | 1 | Owned | Female to Female port with LED display and turnable handle. covers 0-63.5dB |
+
 
 ## RF Cables, Pigtails and Adapters
 
