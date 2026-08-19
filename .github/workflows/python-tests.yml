@@ -16,15 +16,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r receiver/python/requirements.txt
-          pip install -r simulation/python/requirements.txt
-      - name: Run tests
-        run: |
-          set +e
-          pytest -q
-          code=$?
-          if [ "$code" -eq 5 ]; then
-            echo "No tests collected yet."
-            exit 0
+          if [ -f simulation/python/requirements.txt ]; then
+            pip install -r simulation/python/requirements.txt
+          else
+            echo "No simulation/python/requirements.txt yet; skipping simulation dependencies."
           fi
-          exit "$code"
-
+      - name: Run receiver tests
+        run: |
+          pytest -q receiver/python/tests
+        env:
+          PYTHONPATH: receiver/python
+      - name: Run simulation tests if present
+        run: |
+          if [ -d simulation/python/tests ]; then
+            pytest -q simulation/python/tests
+          else
+            echo "No simulation/python/tests directory yet; skipping simulation tests."
+          fi
+        env:
+          PYTHONPATH: simulation/python
